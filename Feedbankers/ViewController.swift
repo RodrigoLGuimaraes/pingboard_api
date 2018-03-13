@@ -32,6 +32,8 @@ class ViewController: UIViewController {
     //Current state of comments view
     var state: State = .closed
     
+    var isKeyboardShowing = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -68,6 +70,9 @@ class ViewController: UIViewController {
     }
     
     @objc func onDrag(_ gesture: UIPanGestureRecognizer) {
+        if isKeyboardShowing {
+            return
+        }
         
         switch gesture.state {
         case .began:
@@ -91,10 +96,33 @@ class ViewController: UIViewController {
     }
     
     @objc func onTap(_ gesture: UITapGestureRecognizer) {
+        if isKeyboardShowing {
+            return
+        }
         //create animations and
         animateIfNeeded(to: state.opposite, duration: 0.4)
         runningAnimators.forEach { $0.startAnimation() }
         
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            isKeyboardShowing = true
+            bottomViewConstraint.constant -= keyboardSize.height
+        }
+
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            isKeyboardShowing = false
+            bottomViewConstraint.constant = state == .open ? 0 : bottomView.bounds.height - CLOSED_SIZE
+        }
+    }
+    
+    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+        usernameTF.resignFirstResponder()
+        passwordTF.resignFirstResponder()
     }
     
     func setupViews() {
@@ -106,6 +134,12 @@ class ViewController: UIViewController {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.onTap(_:)))
         self.bottomView.addGestureRecognizer(tapGesture)
+        
+        //Keyboard hiding
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        let tapGestureKeyboard = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
+        self.view.addGestureRecognizer(tapGestureKeyboard)
     }
 
     override func didReceiveMemoryWarning() {
