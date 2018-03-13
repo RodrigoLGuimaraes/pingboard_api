@@ -32,8 +32,6 @@ class ViewController: UIViewController {
     //Current state of comments view
     var state: State = .closed
     
-    var viewOffset: CGFloat = 300//TODO
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -78,7 +76,7 @@ class ViewController: UIViewController {
         case .changed:
             //calculates the percent of completion and sets it to all running animators
             let translation = gesture.translation(in: bottomView)
-            let fraction = abs(translation.y / viewOffset)
+            let fraction = abs(translation.y / (self.bottomView.bounds.height - self.CLOSED_SIZE))
             
             runningAnimators.forEach { animator in
                 animator.fractionComplete = fraction
