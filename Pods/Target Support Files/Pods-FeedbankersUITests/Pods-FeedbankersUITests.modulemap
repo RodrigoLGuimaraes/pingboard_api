@@ -1,0 +1,6 @@
+framework module Pods_FeedbankersUITests {
+  umbrella header "Pods-FeedbankersUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

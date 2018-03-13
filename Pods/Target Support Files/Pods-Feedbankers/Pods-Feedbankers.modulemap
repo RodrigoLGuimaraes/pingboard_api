@@ -1,0 +1,6 @@
+framework module Pods_Feedbankers {
+  umbrella header "Pods-Feedbankers-umbrella.h"
+
+  export *
+  module * { export * }
+}
