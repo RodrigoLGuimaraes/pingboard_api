@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import Hue
+import ChameleonFramework
 
 class PeopleTableViewController: UIViewController, UITableViewDataSource {
     
+    @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
     var mockData = ["nome1", "nome2", "nome3", "nome1", "nome2", "nome3"]
@@ -19,6 +22,12 @@ class PeopleTableViewController: UIViewController, UITableViewDataSource {
 
         // Do any additional setup after loading the view.
         self.tableView.dataSource = self
+        
+        //Header BG
+        headerView.backgroundColor = UIColor.white.alpha(0)
+        let gradient = [UIColor.flatSkyBlueDark, UIColor.flatSkyBlue].gradient()
+        gradient.frame = headerView.frame
+        headerView.layer.insertSublayer(gradient, at: 0)
     }
 
     override func didReceiveMemoryWarning() {

@@ -1,5 +1,9 @@
 PODS:
   - Alamofire (4.7.0)
+  - ChameleonFramework/Default (2.1.0)
+  - ChameleonFramework/Swift (2.1.0):
+    - ChameleonFramework/Default
+  - Hue (3.0.1)
   - ModelMapper (7.4.1)
   - Moya (11.0.1):
     - Moya/Core (= 11.0.1)
@@ -23,13 +27,26 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
+  - Hue
   - Moya-ModelMapper/RxSwift
   - Moya/RxSwift
   - RxCocoa
   - RxSwift
 
+EXTERNAL SOURCES:
+  ChameleonFramework:
+    :git: https://github.com/ViccAlexander/Chameleon.git
+
+CHECKOUT OPTIONS:
+  ChameleonFramework:
+    :commit: 6dd284bde21ea2e7f9fd89bc36f40df16e16369d
+    :git: https://github.com/ViccAlexander/Chameleon.git
+
 SPEC CHECKSUMS:
   Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  Hue: 93e852fa6211ab35922ad8c293f51c43d6c79eb2
   ModelMapper: e576b4e32007bf574d0f9e4f533d29c46d29f146
   Moya: 3d594ada51a21cc02b18739ab578a1984f900c8a
   Moya-ModelMapper: 7e0edaa193c2f3be4dd2dcb4bab5e2a5d3180270
@@ -37,6 +54,6 @@ SPEC CHECKSUMS:
   RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
   RxSwift: e49536837d9901277638493ea537394d4b55f570
 
-PODFILE CHECKSUM: 8fd13e4439d0d8fe74aaa8fc171fc165823a1de4
+PODFILE CHECKSUM: 80c5778147153f694551a7639cd86e2cec3b2574
 
 COCOAPODS: 1.4.0
