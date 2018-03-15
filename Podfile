@@ -13,6 +13,7 @@ target 'Feedbankers' do
   pod 'Moya-ModelMapper/RxSwift'
   pod 'Hue'
   pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
+  pod 'Kingfisher'
 
   target 'FeedbankersTests' do
     inherit! :search_paths

@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		0500B5352058668300706760 /* BorderedCircularButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0500B5342058668300706760 /* BorderedCircularButton.swift */; };
+		0598F537205AE257002E3422 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598F536205AE257002E3422 /* ProfileRouter.swift */; };
+		0598F539205AE25F002E3422 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598F538205AE25F002E3422 /* ProfileService.swift */; };
+		0598F53B205AE268002E3422 /* ProfileServiceImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598F53A205AE268002E3422 /* ProfileServiceImplementation.swift */; };
+		0598F53F205AE69D002E3422 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598F53E205AE69D002E3422 /* UserDefaultsManager.swift */; };
+		0598F541205AE906002E3422 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598F540205AE906002E3422 /* AuthResponse.swift */; };
+		0598F543205AEA96002E3422 /* ProfileResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598F542205AEA96002E3422 /* ProfileResponse.swift */; };
 		05A24ECC20585A2D00F2F275 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A24ECB20585A2D00F2F275 /* AppDelegate.swift */; };
 		05A24ECE20585A2D00F2F275 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A24ECD20585A2D00F2F275 /* LoginViewController.swift */; };
 		05A24ED120585A2D00F2F275 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05A24ECF20585A2D00F2F275 /* Main.storyboard */; };
@@ -46,6 +52,12 @@
 
 /* Begin PBXFileReference section */
 		0500B5342058668300706760 /* BorderedCircularButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedCircularButton.swift; sourceTree = "<group>"; };
+		0598F536205AE257002E3422 /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
+		0598F538205AE25F002E3422 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
+		0598F53A205AE268002E3422 /* ProfileServiceImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceImplementation.swift; sourceTree = "<group>"; };
+		0598F53E205AE69D002E3422 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		0598F540205AE906002E3422 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
+		0598F542205AEA96002E3422 /* ProfileResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileResponse.swift; sourceTree = "<group>"; };
 		05A24EC820585A2D00F2F275 /* Feedbankers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Feedbankers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05A24ECB20585A2D00F2F275 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		05A24ECD20585A2D00F2F275 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +128,28 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		0598F53C205AE288002E3422 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				05E08FB02059AD0E00423B28 /* AuthRouter.swift */,
+				05E08FB4205ABC6700423B28 /* AuthService.swift */,
+				05E08FB6205ABCA300423B28 /* AuthServiceImplementation.swift */,
+				0598F540205AE906002E3422 /* AuthResponse.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		0598F53D205AE290002E3422 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				0598F536205AE257002E3422 /* ProfileRouter.swift */,
+				0598F538205AE25F002E3422 /* ProfileService.swift */,
+				0598F53A205AE268002E3422 /* ProfileServiceImplementation.swift */,
+				0598F542205AEA96002E3422 /* ProfileResponse.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		05A24EBF20585A2D00F2F275 = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +183,7 @@
 				05A24ECB20585A2D00F2F275 /* AppDelegate.swift */,
 				05A24ED220585A2D00F2F275 /* Assets.xcassets */,
 				05A24ED720585A2D00F2F275 /* Info.plist */,
+				0598F53E205AE69D002E3422 /* UserDefaultsManager.swift */,
 			);
 			path = Feedbankers;
 			sourceTree = "<group>";
@@ -199,9 +234,8 @@
 		05E08FAF2059AC4400423B28 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				05E08FB02059AD0E00423B28 /* AuthRouter.swift */,
-				05E08FB4205ABC6700423B28 /* AuthService.swift */,
-				05E08FB6205ABCA300423B28 /* AuthServiceImplementation.swift */,
+				0598F53C205AE288002E3422 /* Auth */,
+				0598F53D205AE290002E3422 /* Profile */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -459,6 +493,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/Hue/Hue.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/ModelMapper/Mapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya-ModelMapper/Moya_ModelMapper.framework",
@@ -471,6 +506,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hue.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya_ModelMapper.framework",
@@ -538,16 +574,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0598F543205AEA96002E3422 /* ProfileResponse.swift in Sources */,
 				05A24ECE20585A2D00F2F275 /* LoginViewController.swift in Sources */,
 				05A24ECC20585A2D00F2F275 /* AppDelegate.swift in Sources */,
 				05E08FA820599AD500423B28 /* CircularImage.swift in Sources */,
 				0500B5352058668300706760 /* BorderedCircularButton.swift in Sources */,
 				05E08FAB20599B7700423B28 /* PeopleTableViewController.swift in Sources */,
+				0598F53B205AE268002E3422 /* ProfileServiceImplementation.swift in Sources */,
+				0598F539205AE25F002E3422 /* ProfileService.swift in Sources */,
 				05E08FB12059AD0E00423B28 /* AuthRouter.swift in Sources */,
 				05E08FB5205ABC6700423B28 /* AuthService.swift in Sources */,
+				0598F53F205AE69D002E3422 /* UserDefaultsManager.swift in Sources */,
 				05E08FAE20599BB500423B28 /* PersonTableViewCell.swift in Sources */,
 				05E08FA620586D4A00423B28 /* Constants.swift in Sources */,
 				05E08FB7205ABCA300423B28 /* AuthServiceImplementation.swift in Sources */,
+				0598F541205AE906002E3422 /* AuthResponse.swift in Sources */,
+				0598F537205AE257002E3422 /* ProfileRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

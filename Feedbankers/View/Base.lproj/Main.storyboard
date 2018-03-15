@@ -230,6 +230,9 @@
                     </view>
                     <connections>
                         <outlet property="headerView" destination="rTa-0v-v9J" id="pcd-4J-BLQ"/>
+                        <outlet property="profileImage" destination="cVv-ER-3jG" id="xCp-8j-WTG"/>
+                        <outlet property="profileName" destination="tYu-vi-MtD" id="xUh-ZP-ZT8"/>
+                        <outlet property="profilePosition" destination="8vk-qO-C48" id="A9I-ly-eop"/>
                         <outlet property="tableView" destination="7UH-S3-lAI" id="gzz-wC-XmM"/>
                     </connections>
                 </viewController>
