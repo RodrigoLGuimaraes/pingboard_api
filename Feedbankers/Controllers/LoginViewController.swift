@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Moya
+import RxSwift
+import RxCocoa
 
 enum State {
     case closed
@@ -17,12 +20,15 @@ enum State {
     }
 }
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
 
     @IBOutlet weak var usernameTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var bottomViewConstraint: NSLayoutConstraint!
+    @IBOutlet weak var loginButton: BorderedCircularButton!
+    
+    let disposeBag = DisposeBag()
     
     let CLOSED_SIZE : CGFloat = 51
     
@@ -38,6 +44,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         setupViews()
+        setupBindings()
     }
     
     func animateIfNeeded(to state: State, duration: TimeInterval) {
@@ -142,9 +149,32 @@ class ViewController: UIViewController {
         self.view.addGestureRecognizer(tapGestureKeyboard)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func setupBindings() {
+        loginButton.rx.tap.bind {
+            print("tap binding worked")
+            #if DEBUG
+                let provider = MoyaProvider<AuthRouter>(plugins: [NetworkLoggerPlugin(verbose: true)])
+            #else
+                let provider = MoyaProvider<AuthRouter>()
+            #endif
+
+
+            provider.rx.request(.login(username: self.usernameTF.text!, password: self.passwordTF.text!)).subscribe({ event in
+                switch event {
+                case .success(let response):
+                    print("Sucess with response: \(response.description)")
+                    do {
+                        let _ = try response.filterSuccessfulStatusCodes()
+                        self.performSegue(withIdentifier: "loginSegue", sender: self)
+                    } catch {
+                        //TODO: Alert the user
+                        print("can't filter successful status codes")
+                    }
+                case .error(let error):
+                    print("Error with description: \(error.localizedDescription)")
+                }
+            }).disposed(by: self.disposeBag)
+        }.disposed(by: disposeBag)
     }
 
 
