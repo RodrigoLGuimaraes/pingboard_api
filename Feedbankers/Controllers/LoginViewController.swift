@@ -165,6 +165,8 @@ class LoginViewController: UIViewController {
                     print("Sucess with response: \(response.description)")
                     do {
                         let _ = try response.filterSuccessfulStatusCodes()
+                        let responseJSON = try response.map(AuthResponse.self)
+                        UserDefaultsManager.shared.accessToken = responseJSON.access_token
                         self.performSegue(withIdentifier: "loginSegue", sender: self)
                     } catch {
                         //TODO: Alert the user

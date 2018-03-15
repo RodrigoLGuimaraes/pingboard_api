@@ -18,6 +18,6 @@ class AuthServiceImplementation : AuthService {
     }
     
     func login(username: String, password: String) -> PrimitiveSequence<SingleTrait, Response> {
-        return provider.rx.request(.login(username: username, password: password)) //TODO
+        return provider.rx.request(.login(username: username, password: password))
     }
 }
