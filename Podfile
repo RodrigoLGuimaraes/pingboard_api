@@ -14,6 +14,8 @@ target 'Feedbankers' do
   pod 'Hue'
   pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
   pod 'Kingfisher'
+  pod 'TextFieldEffects'
+  pod 'Eureka'
 
   target 'FeedbankersTests' do
     inherit! :search_paths
