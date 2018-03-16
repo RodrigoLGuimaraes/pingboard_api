@@ -171,8 +171,6 @@
 				0598F538205AE25F002E3422 /* ProfileService.swift */,
 				0598F53A205AE268002E3422 /* ProfileServiceImplementation.swift */,
 				0598F542205AEA96002E3422 /* ProfileResponse.swift */,
-				05116B70205AFAAA001AEB1D /* UserResponse.swift */,
-				05116B72205AFAB9001AEB1D /* AvatarURLs.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -233,6 +231,15 @@
 			path = FeedbankersUITests;
 			sourceTree = "<group>";
 		};
+		05DED2DD205BF7D600C36629 /* Commom */ = {
+			isa = PBXGroup;
+			children = (
+				05116B70205AFAAA001AEB1D /* UserResponse.swift */,
+				05116B72205AFAB9001AEB1D /* AvatarURLs.swift */,
+			);
+			path = Commom;
+			sourceTree = "<group>";
+		};
 		05E08FA420586D3E00423B28 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,6 +269,7 @@
 		05E08FAF2059AC4400423B28 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				05DED2DD205BF7D600C36629 /* Commom */,
 				05116B76205AFB9F001AEB1D /* Users */,
 				0598F53C205AE288002E3422 /* Auth */,
 				0598F53D205AE290002E3422 /* Profile */,

@@ -10,4 +10,10 @@ import Foundation
 
 struct AvatarURLs : Decodable {
     var original : String?
+    var xxlarge : String?
+    var xlarge : String?
+    var large : String?
+    var medium : String?
+    var small : String?
+    var icon : String?
 }
