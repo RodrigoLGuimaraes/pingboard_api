@@ -13,7 +13,7 @@ import RxSwift
 import Moya
 import Kingfisher
 
-class PeopleTableViewController: UIViewController, UITableViewDataSource {
+class PeopleTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate {
     
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -25,6 +25,7 @@ class PeopleTableViewController: UIViewController, UITableViewDataSource {
     var mockData = ["nome1", "nome2", "nome3", "nome1", "nome2", "nome3"]
     
     var users = [UserResponse]()
+    var selectedUser : UserResponse?
     
     let disposeBag = DisposeBag()
     
@@ -37,9 +38,18 @@ class PeopleTableViewController: UIViewController, UITableViewDataSource {
 
         // Do any additional setup after loading the view.
         self.tableView.dataSource = self
+        self.tableView.delegate = self
         
         setupViews()
         initializeRequests()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
     }
     
     func myProfileRequest() {
@@ -119,12 +129,36 @@ class PeopleTableViewController: UIViewController, UITableViewDataSource {
         }
     }
     
+    func actionSheet(_ actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int) {
+        switch (buttonIndex){
+        case 0:
+            //Logout
+            UserDefaultsManager.shared.accessToken = ""
+            self.dismiss(animated: true, completion: nil)
+        case 1:
+            //Cancel
+            print("Cancel clicked")
+        default:
+            print("Default")
+        }
+    }
+    
+    @objc func logoutAction(_ sender : AnyObject) {
+        let actionSheet = UIActionSheet(title: "Options", delegate: self, cancelButtonTitle: "Cancel", destructiveButtonTitle: "Logout")
+        
+        actionSheet.show(in: self.view)
+    }
+    
     func setupViews() {
         //Header BG
         headerView.backgroundColor = UIColor.white.alpha(0)
         let gradient = [UIColor.flatSkyBlueDark, UIColor.flatSkyBlue].gradient()
         gradient.frame = headerView.frame
         headerView.layer.insertSublayer(gradient, at: 0)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.logoutAction(_:)))
+        profileImage.isUserInteractionEnabled = true
+        profileImage.addGestureRecognizer(tap)
     }
 
     override func didReceiveMemoryWarning() {
@@ -159,11 +193,26 @@ class PeopleTableViewController: UIViewController, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        if indexPath.row < self.users.count {
+            self.selectedUser = self.users[indexPath.row]
+            self.performSegue(withIdentifier: "profileSegue", sender: self)
+        }
+    }
+    
     func updateList(usersResponse: UsersResponse) {
         for user in usersResponse.users {
             self.users.append(user)
         }
         self.tableView.reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? FeedbackFormViewController {
+            vc.user = selectedUser!
+        }
     }
 
 }

@@ -1,20 +1,20 @@
 //
-//  CircularImage.swift
+//  CircularView.swift
 //  Feedbankers
 //
-//  Created by Rodrigo Longhi Guimarães on 14/03/18.
+//  Created by Pedro Marcos Derkacz on 14/03/18.
 //  Copyright © 2018 Rodrigo Longhi Guimarães. All rights reserved.
 //
 
 import UIKit
 
-class CircularImage: UIImageView {
-
+class CircularView: UIView {
+    
     override func awakeFromNib() {
-        self.layer.cornerRadius = self.frame.height/2.0
+        self.layer.cornerRadius = 30
         self.layer.masksToBounds = true
         // POG to fix the corner radius
-        self.layer.borderWidth = 0.1
+        self.layer.borderWidth = 30
         self.layer.borderColor = UIColor.white.cgColor
     }
     

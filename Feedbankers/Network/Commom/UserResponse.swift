@@ -9,6 +9,7 @@
 import Foundation
 
 struct UserResponse : Decodable {
+    let id : String
     let first_name : String
     let last_name : String
     let job_title : String
