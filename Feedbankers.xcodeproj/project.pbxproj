@@ -8,8 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		0500B5352058668300706760 /* BorderedCircularButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0500B5342058668300706760 /* BorderedCircularButton.swift */; };
+		0598F537205AE257002E3422 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598F536205AE257002E3422 /* ProfileRouter.swift */; };
+		0598F539205AE25F002E3422 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598F538205AE25F002E3422 /* ProfileService.swift */; };
+		0598F53B205AE268002E3422 /* ProfileServiceImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598F53A205AE268002E3422 /* ProfileServiceImplementation.swift */; };
+		0598F53F205AE69D002E3422 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598F53E205AE69D002E3422 /* UserDefaultsManager.swift */; };
+		0598F541205AE906002E3422 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598F540205AE906002E3422 /* AuthResponse.swift */; };
+		0598F543205AEA96002E3422 /* ProfileResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598F542205AEA96002E3422 /* ProfileResponse.swift */; };
 		05A24ECC20585A2D00F2F275 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A24ECB20585A2D00F2F275 /* AppDelegate.swift */; };
-		05A24ECE20585A2D00F2F275 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A24ECD20585A2D00F2F275 /* ViewController.swift */; };
+		05A24ECE20585A2D00F2F275 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A24ECD20585A2D00F2F275 /* LoginViewController.swift */; };
 		05A24ED120585A2D00F2F275 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05A24ECF20585A2D00F2F275 /* Main.storyboard */; };
 		05A24ED320585A2D00F2F275 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05A24ED220585A2D00F2F275 /* Assets.xcassets */; };
 		05A24ED620585A2D00F2F275 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05A24ED420585A2D00F2F275 /* LaunchScreen.storyboard */; };
@@ -19,9 +25,13 @@
 		05E08FA820599AD500423B28 /* CircularImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E08FA720599AD500423B28 /* CircularImage.swift */; };
 		05E08FAB20599B7700423B28 /* PeopleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E08FAA20599B7700423B28 /* PeopleTableViewController.swift */; };
 		05E08FAE20599BB500423B28 /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E08FAD20599BB500423B28 /* PersonTableViewCell.swift */; };
+		05E08FB12059AD0E00423B28 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E08FB02059AD0E00423B28 /* AuthRouter.swift */; };
+		05E08FB5205ABC6700423B28 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E08FB4205ABC6700423B28 /* AuthService.swift */; };
+		05E08FB7205ABCA300423B28 /* AuthServiceImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E08FB6205ABCA300423B28 /* AuthServiceImplementation.swift */; };
 		0DC5B9167040FAEE7ED4097B /* Pods_Feedbankers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F07211AA9CBC48780702496A /* Pods_Feedbankers.framework */; };
 		71E45C5C40907EB6C68D7B4A /* Pods_FeedbankersUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE78DE83650556599799DB7B /* Pods_FeedbankersUITests.framework */; };
 		823393F0E0993CEC659E09DF /* Pods_FeedbankersTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 725B11664477B427985C95B2 /* Pods_FeedbankersTests.framework */; };
+		EAA7A5D72059CA9600AE3764 /* FeedbackFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA7A5D62059CA9600AE3764 /* FeedbackFormViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,9 +53,15 @@
 
 /* Begin PBXFileReference section */
 		0500B5342058668300706760 /* BorderedCircularButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedCircularButton.swift; sourceTree = "<group>"; };
+		0598F536205AE257002E3422 /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
+		0598F538205AE25F002E3422 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
+		0598F53A205AE268002E3422 /* ProfileServiceImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceImplementation.swift; sourceTree = "<group>"; };
+		0598F53E205AE69D002E3422 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		0598F540205AE906002E3422 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
+		0598F542205AEA96002E3422 /* ProfileResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileResponse.swift; sourceTree = "<group>"; };
 		05A24EC820585A2D00F2F275 /* Feedbankers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Feedbankers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05A24ECB20585A2D00F2F275 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		05A24ECD20585A2D00F2F275 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		05A24ECD20585A2D00F2F275 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		05A24ED020585A2D00F2F275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		05A24ED220585A2D00F2F275 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05A24ED520585A2D00F2F275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -60,6 +76,9 @@
 		05E08FA720599AD500423B28 /* CircularImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularImage.swift; sourceTree = "<group>"; };
 		05E08FAA20599B7700423B28 /* PeopleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleTableViewController.swift; sourceTree = "<group>"; };
 		05E08FAD20599BB500423B28 /* PersonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
+		05E08FB02059AD0E00423B28 /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
+		05E08FB4205ABC6700423B28 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		05E08FB6205ABCA300423B28 /* AuthServiceImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceImplementation.swift; sourceTree = "<group>"; };
 		51276ADF9023EF82E3328859 /* Pods-FeedbankersTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeedbankersTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FeedbankersTests/Pods-FeedbankersTests.release.xcconfig"; sourceTree = "<group>"; };
 		6159EE78F4428777E4CEBB93 /* Pods-Feedbankers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feedbankers.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Feedbankers/Pods-Feedbankers.debug.xcconfig"; sourceTree = "<group>"; };
 		725B11664477B427985C95B2 /* Pods_FeedbankersTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FeedbankersTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +87,7 @@
 		7C9CA14D288909D140CCF870 /* Pods-FeedbankersTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeedbankersTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FeedbankersTests/Pods-FeedbankersTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AE78DE83650556599799DB7B /* Pods_FeedbankersUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FeedbankersUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF2968E74BCB31713376B3C3 /* Pods-Feedbankers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feedbankers.release.xcconfig"; path = "Pods/Target Support Files/Pods-Feedbankers/Pods-Feedbankers.release.xcconfig"; sourceTree = "<group>"; };
+		EAA7A5D62059CA9600AE3764 /* FeedbackFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackFormViewController.swift; sourceTree = "<group>"; };
 		F07211AA9CBC48780702496A /* Pods_Feedbankers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Feedbankers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -110,6 +130,28 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		0598F53C205AE288002E3422 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				05E08FB02059AD0E00423B28 /* AuthRouter.swift */,
+				05E08FB4205ABC6700423B28 /* AuthService.swift */,
+				05E08FB6205ABCA300423B28 /* AuthServiceImplementation.swift */,
+				0598F540205AE906002E3422 /* AuthResponse.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		0598F53D205AE290002E3422 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				0598F536205AE257002E3422 /* ProfileRouter.swift */,
+				0598F538205AE25F002E3422 /* ProfileService.swift */,
+				0598F53A205AE268002E3422 /* ProfileServiceImplementation.swift */,
+				0598F542205AEA96002E3422 /* ProfileResponse.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		05A24EBF20585A2D00F2F275 = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +177,7 @@
 		05A24ECA20585A2D00F2F275 /* Feedbankers */ = {
 			isa = PBXGroup;
 			children = (
+				05E08FAF2059AC4400423B28 /* Network */,
 				05E08FAC20599B9F00423B28 /* TableView */,
 				05E08FA920599B3C00423B28 /* Controllers */,
 				05E08FA420586D3E00423B28 /* Helpers */,
@@ -142,6 +185,7 @@
 				05A24ECB20585A2D00F2F275 /* AppDelegate.swift */,
 				05A24ED220585A2D00F2F275 /* Assets.xcassets */,
 				05A24ED720585A2D00F2F275 /* Info.plist */,
+				0598F53E205AE69D002E3422 /* UserDefaultsManager.swift */,
 			);
 			path = Feedbankers;
 			sourceTree = "<group>";
@@ -175,8 +219,9 @@
 		05E08FA920599B3C00423B28 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				05A24ECD20585A2D00F2F275 /* ViewController.swift */,
+				05A24ECD20585A2D00F2F275 /* LoginViewController.swift */,
 				05E08FAA20599B7700423B28 /* PeopleTableViewController.swift */,
+				EAA7A5D62059CA9600AE3764 /* FeedbackFormViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -187,6 +232,15 @@
 				05E08FAD20599BB500423B28 /* PersonTableViewCell.swift */,
 			);
 			path = TableView;
+			sourceTree = "<group>";
+		};
+		05E08FAF2059AC4400423B28 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				0598F53C205AE288002E3422 /* Auth */,
+				0598F53D205AE290002E3422 /* Profile */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		BEE2D190224EBDD2E409D2B0 /* Frameworks */ = {
@@ -440,22 +494,32 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Feedbankers/Pods-Feedbankers-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
+				"${BUILT_PRODUCTS_DIR}/Hue/Hue.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/ModelMapper/Mapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya-ModelMapper/Moya_ModelMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hue.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya_ModelMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -517,13 +581,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05A24ECE20585A2D00F2F275 /* ViewController.swift in Sources */,
+				0598F543205AEA96002E3422 /* ProfileResponse.swift in Sources */,
+				05A24ECE20585A2D00F2F275 /* LoginViewController.swift in Sources */,
 				05A24ECC20585A2D00F2F275 /* AppDelegate.swift in Sources */,
 				05E08FA820599AD500423B28 /* CircularImage.swift in Sources */,
 				0500B5352058668300706760 /* BorderedCircularButton.swift in Sources */,
 				05E08FAB20599B7700423B28 /* PeopleTableViewController.swift in Sources */,
+				0598F53B205AE268002E3422 /* ProfileServiceImplementation.swift in Sources */,
+				0598F539205AE25F002E3422 /* ProfileService.swift in Sources */,
+				05E08FB12059AD0E00423B28 /* AuthRouter.swift in Sources */,
+				05E08FB5205ABC6700423B28 /* AuthService.swift in Sources */,
+				0598F53F205AE69D002E3422 /* UserDefaultsManager.swift in Sources */,
 				05E08FAE20599BB500423B28 /* PersonTableViewCell.swift in Sources */,
+				EAA7A5D72059CA9600AE3764 /* FeedbackFormViewController.swift in Sources */,
 				05E08FA620586D4A00423B28 /* Constants.swift in Sources */,
+				05E08FB7205ABCA300423B28 /* AuthServiceImplementation.swift in Sources */,
+				0598F541205AE906002E3422 /* AuthResponse.swift in Sources */,
+				0598F537205AE257002E3422 /* ProfileRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

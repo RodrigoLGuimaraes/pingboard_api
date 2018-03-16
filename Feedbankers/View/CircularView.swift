@@ -9,13 +9,13 @@
 import UIKit
 
 class CircularView: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    
+    override func awakeFromNib() {
+        self.layer.cornerRadius = 30
+        self.layer.masksToBounds = true
+        // POG to fix the corner radius
+        self.layer.borderWidth = 30
+        self.layer.borderColor = UIColor.white.cgColor
     }
-    */
-
+    
 }

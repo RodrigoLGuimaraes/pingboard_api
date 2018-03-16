@@ -18,4 +18,7 @@ struct Constants {
         static let baseApplicationURL = "https://app.pingboard.com/api/v2"
         #endif
     }
+    struct UserDefaults {
+        static let accessTokenKey = "accTokenKey"
+    }
 }
