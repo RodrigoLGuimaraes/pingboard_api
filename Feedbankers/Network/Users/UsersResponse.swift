@@ -1,5 +1,5 @@
 //
-//  ProfileResponse.swift
+//  UsersResponse.swift
 //  Feedbankers
 //
 //  Created by Rodrigo Longhi Guimarães on 15/03/18.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct ProfileResponse : Decodable {
+struct UsersResponse : Decodable {
     let users : [UserResponse]
 }

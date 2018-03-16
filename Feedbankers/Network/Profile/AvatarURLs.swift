@@ -1,5 +1,5 @@
 //
-//  ProfileResponse.swift
+//  AvatarURLs.swift
 //  Feedbankers
 //
 //  Created by Rodrigo Longhi Guimarães on 15/03/18.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct ProfileResponse : Decodable {
-    let users : [UserResponse]
+struct AvatarURLs : Decodable {
+    var original : String?
 }
