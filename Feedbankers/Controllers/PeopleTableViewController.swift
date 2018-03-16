@@ -103,7 +103,7 @@ class PeopleTableViewController: UIViewController, UITableViewDataSource {
             profileName.text = user.first_name + " " + user.last_name
             profilePosition.text = user.job_title
             
-            if let urlString = user.avatar_urls.original {
+            if let urlString = user.avatar_urls.large {
                 let url = URL(string: urlString)
                 profileImage.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "user"), options: nil, progressBlock: nil, completionHandler: nil)
             }
@@ -143,7 +143,7 @@ class PeopleTableViewController: UIViewController, UITableViewDataSource {
             if userList.count > indexPath.row {
                 let user = userList[indexPath.row]
                 
-                cell.updateCell(imageURL: user.avatar_urls.original, name: user.first_name + " " + user.last_name, details: user.job_title)
+                cell.updateCell(imageURL: user.avatar_urls.small, name: user.first_name + " " + user.last_name, details: user.job_title)
             }
         }
         
