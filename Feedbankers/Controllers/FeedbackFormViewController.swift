@@ -13,7 +13,7 @@ class FeedbackFormViewController: FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        createForm(questions: ["Trabalha bem?", "Boa praça?", "Gente boa?", "Curte a Leia?"])
+        createForm(questions: ["Trabalha bem?", "Boa praça?", "Gente boa?"])
         print(form.values())
     }
 
