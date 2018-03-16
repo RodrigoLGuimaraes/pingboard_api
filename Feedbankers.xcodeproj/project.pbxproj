@@ -14,6 +14,7 @@
 		05116B7A205AFBB6001AEB1D /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05116B79205AFBB6001AEB1D /* UsersService.swift */; };
 		05116B7C205AFBBF001AEB1D /* UsersServiceImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05116B7B205AFBBF001AEB1D /* UsersServiceImplementation.swift */; };
 		05116B7E205AFEA6001AEB1D /* UsersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05116B7D205AFEA6001AEB1D /* UsersResponse.swift */; };
+		05482835205C0F1300C4B026 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05482834205C0F1300C4B026 /* GoogleService-Info.plist */; };
 		0598F537205AE257002E3422 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598F536205AE257002E3422 /* ProfileRouter.swift */; };
 		0598F539205AE25F002E3422 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598F538205AE25F002E3422 /* ProfileService.swift */; };
 		0598F53B205AE268002E3422 /* ProfileServiceImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598F53A205AE268002E3422 /* ProfileServiceImplementation.swift */; };
@@ -65,6 +66,7 @@
 		05116B79205AFBB6001AEB1D /* UsersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersService.swift; sourceTree = "<group>"; };
 		05116B7B205AFBBF001AEB1D /* UsersServiceImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersServiceImplementation.swift; sourceTree = "<group>"; };
 		05116B7D205AFEA6001AEB1D /* UsersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersResponse.swift; sourceTree = "<group>"; };
+		05482834205C0F1300C4B026 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0598F536205AE257002E3422 /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
 		0598F538205AE25F002E3422 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		0598F53A205AE268002E3422 /* ProfileServiceImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceImplementation.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				05A24ECB20585A2D00F2F275 /* AppDelegate.swift */,
 				05A24ED220585A2D00F2F275 /* Assets.xcassets */,
 				05A24ED720585A2D00F2F275 /* Info.plist */,
+				05482834205C0F1300C4B026 /* GoogleService-Info.plist */,
 				0598F53E205AE69D002E3422 /* UserDefaultsManager.swift */,
 			);
 			path = Feedbankers;
@@ -417,6 +420,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05A24ED620585A2D00F2F275 /* LaunchScreen.storyboard in Resources */,
+				05482835205C0F1300C4B026 /* GoogleService-Info.plist in Resources */,
 				05A24ED320585A2D00F2F275 /* Assets.xcassets in Resources */,
 				05A24ED120585A2D00F2F275 /* Main.storyboard in Resources */,
 			);
@@ -530,6 +534,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Hue/Hue.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/ModelMapper/Mapper.framework",
@@ -539,12 +544,15 @@
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hue.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapper.framework",
@@ -554,6 +562,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

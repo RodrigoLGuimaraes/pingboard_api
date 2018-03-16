@@ -16,6 +16,8 @@ target 'Feedbankers' do
   pod 'Kingfisher'
   pod 'TextFieldEffects'
   pod 'Eureka'
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
 
   target 'FeedbankersTests' do
     inherit! :search_paths

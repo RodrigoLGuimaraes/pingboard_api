@@ -8,13 +8,19 @@
 
 import UIKit
 import Eureka
+import FirebaseDatabase
 
 class FeedbackFormViewController: FormViewController {
     
     var questions = ["Trabalha bem?", "Boa praça?", "Gente boa?"]
     
+    var dbRef : DatabaseReference = Database.database().reference()
+    
+    var user : UserResponse!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         createForm()
         print(form.values())
     }
@@ -50,7 +56,7 @@ class FeedbackFormViewController: FormViewController {
         for row in form.allRows {
             for question in questions {
                 if row.tag! == question {
-                    //TODO: Save
+                    dbRef.child("users").child(self.user.id).child("\(question)").setValue(row.baseValue as! String)
                     continue
                 }
             }

@@ -25,6 +25,7 @@ class PeopleTableViewController: UIViewController, UITableViewDataSource, UITabl
     var mockData = ["nome1", "nome2", "nome3", "nome1", "nome2", "nome3"]
     
     var users = [UserResponse]()
+    var selectedUser : UserResponse?
     
     let disposeBag = DisposeBag()
     
@@ -195,7 +196,10 @@ class PeopleTableViewController: UIViewController, UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        self.performSegue(withIdentifier: "profileSegue", sender: self)
+        if indexPath.row < self.users.count {
+            self.selectedUser = self.users[indexPath.row]
+            self.performSegue(withIdentifier: "profileSegue", sender: self)
+        }
     }
     
     func updateList(usersResponse: UsersResponse) {
@@ -203,6 +207,12 @@ class PeopleTableViewController: UIViewController, UITableViewDataSource, UITabl
             self.users.append(user)
         }
         self.tableView.reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? FeedbackFormViewController {
+            vc.user = selectedUser!
+        }
     }
 
 }
