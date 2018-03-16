@@ -24,6 +24,8 @@ class PeopleTableViewController: UIViewController, UITableViewDataSource {
     
     var mockData = ["nome1", "nome2", "nome3", "nome1", "nome2", "nome3"]
     
+    var usersResponse : UsersResponse?
+    
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -36,7 +38,7 @@ class PeopleTableViewController: UIViewController, UITableViewDataSource {
         initializeRequests()
     }
     
-    func initializeRequests() {
+    func myProfileRequest() {
         #if DEBUG
             let provider = MoyaProvider<ProfileRouter>(plugins: [NetworkLoggerPlugin(verbose: true)])
         #else
@@ -61,6 +63,38 @@ class PeopleTableViewController: UIViewController, UITableViewDataSource {
                 print("Error with description: \(error.localizedDescription)")
             }
         }).disposed(by: self.disposeBag)
+    }
+    
+    func userListRequest(page: Int, pageSize: Int) {
+        #if DEBUG
+            let provider = MoyaProvider<UsersRouter>(plugins: [NetworkLoggerPlugin(verbose: true)])
+        #else
+            let provider = MoyaProvider<UsersRouter>()
+        #endif
+        
+        let accessToken = UserDefaultsManager.shared.accessToken
+        
+        provider.rx.request(.getUsers(accessToken: accessToken, pageSize: pageSize, page: page, sort: Sort.StartDate)).subscribe({ event in
+            switch event {
+            case .success(let response):
+                print("Sucess with response: \(response.description)")
+                do {
+                    let filteredResponse = try response.filterSuccessfulStatusCodes()
+                    let usersResponse = try filteredResponse.map(UsersResponse.self)
+                    self.updateList(usersResponse: usersResponse)
+                } catch {
+                    //TODO: Alert the user
+                    print("can't filter successful status codes")
+                }
+            case .error(let error):
+                print("Error with description: \(error.localizedDescription)")
+            }
+        }).disposed(by: self.disposeBag)
+    }
+    
+    func initializeRequests() {
+        myProfileRequest()
+        userListRequest(page: 1, pageSize: 100)
     }
     
     func updateHeader(profileResponse: ProfileResponse) {
@@ -94,15 +128,31 @@ class PeopleTableViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return mockData.count
+        if let userList = usersResponse?.users {
+            return userList.count > 10 ? userList.count : 10
+        }
+        return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "personCell") as! PersonTableViewCell
         
-        cell.updateCell(image: #imageLiteral(resourceName: "teste"), name: mockData[indexPath.row], details: "blabla")
+        cell.clearCell()
+        
+        if let userList = usersResponse?.users {
+            if userList.count > indexPath.row {
+                let user = userList[indexPath.row]
+                
+                cell.updateCell(imageURL: user.avatar_urls.original, name: user.first_name + " " + user.last_name, details: user.job_title)
+            }
+        }
         
         return cell
+    }
+    
+    func updateList(usersResponse: UsersResponse) {
+        self.usersResponse = usersResponse
+        self.tableView.reloadData()
     }
 
 }
