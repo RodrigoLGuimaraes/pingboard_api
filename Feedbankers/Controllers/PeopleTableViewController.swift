@@ -24,9 +24,13 @@ class PeopleTableViewController: UIViewController, UITableViewDataSource {
     
     var mockData = ["nome1", "nome2", "nome3", "nome1", "nome2", "nome3"]
     
-    var usersResponse : UsersResponse?
+    var users = [UserResponse]()
     
     let disposeBag = DisposeBag()
+    
+    var currentPage = 1
+    var pageSize = 100
+    var queryingServer = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +70,8 @@ class PeopleTableViewController: UIViewController, UITableViewDataSource {
     }
     
     func userListRequest(page: Int, pageSize: Int) {
+        queryingServer = true
+        
         #if DEBUG
             let provider = MoyaProvider<UsersRouter>(plugins: [NetworkLoggerPlugin(verbose: true)])
         #else
@@ -75,6 +81,7 @@ class PeopleTableViewController: UIViewController, UITableViewDataSource {
         let accessToken = UserDefaultsManager.shared.accessToken
         
         provider.rx.request(.getUsers(accessToken: accessToken, pageSize: pageSize, page: page, sort: Sort.StartDate)).subscribe({ event in
+            self.queryingServer = false
             switch event {
             case .success(let response):
                 print("Sucess with response: \(response.description)")
@@ -90,11 +97,13 @@ class PeopleTableViewController: UIViewController, UITableViewDataSource {
                 print("Error with description: \(error.localizedDescription)")
             }
         }).disposed(by: self.disposeBag)
+        
+        currentPage += 1
     }
     
     func initializeRequests() {
         myProfileRequest()
-        userListRequest(page: 1, pageSize: 100)
+        userListRequest(page: currentPage, pageSize: pageSize)
     }
     
     func updateHeader(profileResponse: ProfileResponse) {
@@ -103,7 +112,7 @@ class PeopleTableViewController: UIViewController, UITableViewDataSource {
             profileName.text = user.first_name + " " + user.last_name
             profilePosition.text = user.job_title
             
-            if let urlString = user.avatar_urls.original {
+            if let urlString = user.avatar_urls.large {
                 let url = URL(string: urlString)
                 profileImage.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "user"), options: nil, progressBlock: nil, completionHandler: nil)
             }
@@ -128,30 +137,32 @@ class PeopleTableViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let userList = usersResponse?.users {
-            return userList.count > 10 ? userList.count : 10
-        }
-        return 10
+        return users.count > 10 ? users.count : 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "personCell") as! PersonTableViewCell
         
         cell.clearCell()
         
-        if let userList = usersResponse?.users {
-            if userList.count > indexPath.row {
-                let user = userList[indexPath.row]
-                
-                cell.updateCell(imageURL: user.avatar_urls.original, name: user.first_name + " " + user.last_name, details: user.job_title)
-            }
+        if users.count > indexPath.row {
+            let user = users[indexPath.row]
+            
+            cell.updateCell(imageURL: user.avatar_urls.small, name: user.first_name + " " + user.last_name, details: user.job_title)
+        }
+        
+        if (indexPath.row > users.count - 5) && !queryingServer {
+            userListRequest(page: currentPage, pageSize: pageSize)
         }
         
         return cell
     }
     
     func updateList(usersResponse: UsersResponse) {
-        self.usersResponse = usersResponse
+        for user in usersResponse.users {
+            self.users.append(user)
+        }
         self.tableView.reloadData()
     }
 
